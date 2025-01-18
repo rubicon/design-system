@@ -3,12 +3,22 @@
 # Input Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.25.1
+
+### Fixed
+
+- Fixed datetime-local input to prevent content cut off in iOS devices.
+
+## 2.23.0
+
+### Fixed
+
+- Removed wrapping for date input type, which was causing some dates to be cut off.
 
 ## 2.17.0
 
 ### Added
 
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
 - Added reassignment of Styling Hooks for component states.
 
 ### Changed

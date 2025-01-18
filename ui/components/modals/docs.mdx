@@ -36,6 +36,8 @@ These are modals that require a linearly directional paradigm of navigation (“
 
 If you're using a Modal for a system alert that the user must acknowledge, consider using a [Prompt](/components/prompt).
 
+To display the modal close button correctly, don’t use the `slds-button_icon-inverse` class for your close button markup.
+
 ### Accessibility
 
 Modals, by definition, trap focus. This means that if a user presses Tab or Shift+Tab while their keyboard focus is in the modal, their focus should stay in and cycle through the modal’s content. Focus shouldn’t return to the underlying page until the user presses the Esc key, presses an explicit “Cancel” or “Close” button in the modal, or performs another action that closes the modal.
@@ -44,7 +46,7 @@ Modals, by definition, trap focus. This means that if a user presses Tab or Shif
 
 - Modal has `role="dialog"`
 - When the modal is open, everything behind it has HTML attribute `aria-hidden="true"`, so assistive technology won't read out the underlying page. The best way to do this is to give the modal and the page separate wrapper elements and toggle `aria-hidden="true"`/`aria-hidden="false"` on the main page's wrapper depending on whether or not the modal is open.
-- Modal contains an HTML heading. This is an `h1` tag by default but should update according to the surrounding DOM structure. While a semantic heading tag is preferable, if necessary applying `role=”heading”` and `aria-level` to a more generic element is acceptable.
+- Modal contains an HTML heading. This is an `h1` tag by default but should update according to the surrounding DOM structure. While a semantic heading tag is preferable, if necessary applying `role=”heading”` and `aria-level` to a more generic element is acceptable. Modal heading element has `tabindex="-1"` and this makes it programmatically focusable using Javascript.
 - Modal has an `aria-labelledby` attribute whose value is the id of the modal’s heading
 - Modal has an optional `aria-describedby` attribute whose value is the id of the modal's content. This should not be used for all modals, but in instances where the modal is being used as an analog to a javascript `confirm()` or `alert()` dialog to deliver a short prompt that can be responded to with a confirm/cancel button set (eg: [Prompt](/components/prompt/)).
 - Buttons which close the modal should have the same accessible text per [WCAG guidelines](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html).
@@ -126,7 +128,7 @@ Modals, by definition, trap focus. This means that if a user presses Tab or Shif
 
 ### Full
 
-Use the `slds-modal_full` class to give the modal a full screen appearance in mobile device screens, or small form factors. The modal will take on the same appearance as the large size modal when on a medium form factor or larger (from 768px and larger).
+Use the `slds-modal_full` class to give a full screen appearance in small form factors that fall within the `$mq-small` token value. Form factors outside of `$mq-small` will take on the appearance of the large modal.
 
 <CodeView frameOnly frameStyles={{ height: '640px' }} frameTitle="Example mobile styles for full example">
   {getDisplayElementById(Base.examples, 'full')}

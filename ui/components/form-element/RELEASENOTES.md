@@ -4,16 +4,38 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.26.0
+
+### Fixed
+- Fixed input dropdown visibility issue in ff and safari caused by container query in a previous fix
+- Changed the alignment of address form element. This fixes the alignment issue in cases where help text is present.
+- Record form .slds-form__item width is now fluid when parent container is less than 280px
+- Fixed (added) back bem syntax for backwards compatibility
+
+## 2.25.6
+
+### Fixed
+
+- Fixed form element label alignment for Horizontal layout when labels have multiple words in small screens.
+
+## 2.22.0
+
+### Changed
+
+- Added field level custom message option for tooltip
+
 ## 2.18.0
 
 ### Fixed
-- Fixed form element label to support RTL layout by removing left aligned spacing and placing it back on the opposite side. 
+
+- Fixed form element label to support RTL layout by removing left aligned spacing and placing it back on the opposite side.
 
 ## 2.16.0
 
 ### Fixed
 
 - Correctly position help text under the corresponding input when in horizontal layout.
+
 ## 2.14.0
 
 ### Fixed
@@ -46,6 +68,7 @@
 ## 2.12.2
 
 ### Fixed
+
 - For touch devices, fixed an issue with button icons being the incorrect height if using custom elements.
 
 ## 2.11.7

@@ -51,11 +51,16 @@
 .slds-tabs--default__item {
   color: var(--slds-c-tabs-item-text-color, var(--sds-c-tabs-item-text-color, var(--slds-g-color-neutral-base-30, #{$color-text-action-label})));
   position: relative;
-  padding-top: var(--slds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block, 0)));
-  padding-right: var(--slds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline, $spacing-small)));
-  padding-bottom: var(--slds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block, 0)));
-  padding-left: var(--slds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline, $spacing-small)));
+  padding-top: var(--slds-c-tabs-item-spacing-blockstart, var(--slds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block, 0))));
+  padding-right: var(--slds-c-tabs-item-spacing-inlineend, var(--slds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline, $spacing-small))));
+  padding-bottom: var(--slds-c-tabs-item-spacing-blockend, var(--slds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block, 0))));
+  padding-left: var(--slds-c-tabs-item-spacing-inlinestart, var(--slds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline, $spacing-small))));
   margin-bottom: calc(var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, #{$border-width-thin})) * -1);
+
+  &:has(:focus-visible) {
+    outline: 2px solid var(--slds-g-color-brand-base-40);
+    outline-offset: rem(-6px);
+  }
 
   &:after {
     display: block;
@@ -108,12 +113,14 @@
    */
   &:focus,
   &.slds-has-focus {
-    outline: 0;
-
     &:after {
       height: calc(var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, #{$border-width-thick})) + 1px);
       background-color: var(--slds-c-tabs-item-color-border-active, var(--sds-c-tabs-item-color-border-active, $brand-primary));
     }
+  }
+
+  &:focus {
+    outline: 0;
   }
 
   // Remove box-shadow when slds-button is used in conjunction with class
@@ -193,7 +200,8 @@
   text-transform: inherit; // For button menu to inherit the parents text-transform
   z-index: 1; // For subtab notification background coloring
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     outline: 0;
   }
 
@@ -205,7 +213,7 @@
   }
 
   &[tabindex="0"]:focus {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -222,10 +230,13 @@
   .slds-button {
     line-height: inherit;
     color: var(--slds-c-tabs-item-text-color, var(--sds-c-tabs-item-text-color, var(--slds-g-color-neutral-base-30, #{$color-text-action-label})));
-    box-shadow: none;
     --slds-c-button-color-border-active: transparent;
-    &:focus {
-      text-decoration: underline;
+    
+    &:focus,
+    &:focus-visible {
+      text-decoration: none;
+      outline: 0;
+      box-shadow: none;
     }
   }
 
@@ -234,6 +245,14 @@
 
     .slds-button {
       color: var(--slds-g-color-neutral-base-100, #{$color-gray-1});
+    }
+  }
+
+  &.slds-has-error,
+  &.slds-has-success,
+  &.slds-has-warning {
+    .slds-button:focus {
+      box-shadow: var(--slds-g-shadow-outset-focus-1);
     }
   }
 }
@@ -247,25 +266,63 @@
 .slds-tabs--default__content {
   position: relative;
   padding-top:
+    var(--slds-c-tabs-panel-spacing-blockstart,
     var(--slds-c-tabs-panel-spacing-block-start,
     var(--sds-c-tabs-panel-spacing-block-start,
     var(--slds-c-tabs-panel-spacing-block,
-    var(--sds-c-tabs-panel-spacing-block, $spacing-small))));
+    var(--sds-c-tabs-panel-spacing-block, $spacing-small)))));
   padding-right:
+    var(--slds-c-tabs-panel-spacing-inlineend,
     var(--slds-c-tabs-panel-spacing-inline-end,
     var(--sds-c-tabs-panel-spacing-inline-end,
     var(--slds-c-tabs-panel-spacing-inline,
-    var(--sds-c-tabs-panel-spacing-inline, 0))));
+    var(--sds-c-tabs-panel-spacing-inline, 0)))));
   padding-bottom:
+    var(--slds-c-tabs-panel-spacing-blockend,
     var(--slds-c-tabs-panel-spacing-block-end,
     var(--sds-c-tabs-panel-spacing-block-end,
     var(--slds-c-tabs-panel-spacing-block,
-    var(--sds-c-tabs-panel-spacing-block, $spacing-small))));
+    var(--sds-c-tabs-panel-spacing-block, $spacing-small)))));
   padding-left:
+    var(--slds-c-tabs-panel-spacing-inlinestart,
     var(--slds-c-tabs-panel-spacing-inline-start,
     var(--sds-c-tabs-panel-spacing-inline-start,
     var(--slds-c-tabs-panel-spacing-inline,
-    var(--sds-c-tabs-panel-spacing-inline, 0))));
+    var(--sds-c-tabs-panel-spacing-inline, 0)))));
+}
+
+/**
+ * @summary Applies bold font weight to header
+ * @selector .slds-tabs_default__header
+ * @restrict .slds-tabs_default div
+  */
+.slds-tabs_default {
+
+  .slds-tabs_default__header {
+    font-weight: bold;
+  }
+}
+
+/**
+ * @name default
+ * @summary Default sized tabs
+ * @selector .slds-tabs_default
+ * @modifier
+ * @group size
+ */
+ .slds-tabs_default {
+
+  .slds-tabs_default__header:not(.slds-assistive-text) {
+    font-size: $var-font-size-3;
+
+    + .slds-tabs_default__nav .slds-tabs_default__item {
+      font-size: $var-font-size-2;
+    }
+  }
+
+  .slds-tabs_default__item {
+    font-size: $var-font-size-3;
+  }
 }
 
 /**
@@ -276,7 +333,15 @@
  * @modifier
  * @group size
  */
-.slds-tabs_medium {
+.slds-tabs_default.slds-tabs_medium {
+
+  .slds-tabs_default__header {
+    font-size: $var-font-size-5;
+
+    + .slds-tabs_default__nav .slds-tabs_default__item {
+      font-size: $var-font-size-4;
+    }
+  }
 
   .slds-tabs_default__item {
     font-size: $var-font-size-5;
@@ -291,7 +356,15 @@
  * @modifier
  * @group size
  */
-.slds-tabs_large {
+ .slds-tabs_default.slds-tabs_large {
+
+  .slds-tabs_default__header {
+    font-size: $var-font-size-7;
+
+    + .slds-tabs_default__nav .slds-tabs_default__item {
+      font-size: $var-font-size-6;
+    }
+  }
 
   .slds-tabs_default__item {
     font-size: $var-font-size-7;
@@ -318,4 +391,23 @@
  */
 .slds-tabs__right-icon {
   margin-left: $spacing-x-small;
+}
+
+.slds-tabs_default__nav {
+
+  .slds-has-error,
+  .slds-has-warning,
+  .slds-has-success {
+    .slds-tabs_default__link {
+      &:focus-visible {
+        box-shadow: var(--slds-g-shadow-inset-focus-1);
+        outline: 0;
+        text-decoration: none;
+      }
+    }
+
+    .slds-button:focus {
+      box-shadow: var(--slds-g-shadow-inset-focus-1);
+    }
+  }
 }

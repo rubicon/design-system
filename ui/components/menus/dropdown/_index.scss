@@ -162,13 +162,18 @@
       background-color: transparent;
     }
 
+    &:focus {
+      box-shadow: var(--slds-g-shadow-inset-focus-1, #{$shadow-button-focus});
+      outline: 0;
+    }
+
     &:active {
       color: var(--slds-g-color-neutral-100-opacity-50, #{$color-text-link-inverse-active});
       background-color: transparent;
     }
 
     &[aria-disabled="true"] {
-      color: var(--slds-g-color-neutral-100-opacity-10, #{$color-text-link-inverse-disabled});
+      color: var(--slds-g-color-neutral-100-opacity-25, #{$color-text-link-inverse-disabled});
       cursor: default;
 
       &:hover {
@@ -215,6 +220,18 @@
       background-color: var(--slds-g-color-neutral-base-95, #{$color-background-row-hover});
     }
 
+    &:focus {
+      box-shadow: var(--slds-g-shadow-inset-focus-1, #{$shadow-button-focus});
+    }
+
+    &.slds-has-success,
+    &.slds-has-warning,
+    &.slds-has-error {
+      &:focus {
+        box-shadow: var(--slds-g-shadow-inset-inverse-focus-1);
+      }
+    }
+
     &:active {
       text-decoration: none;
       background-color: var(--slds-g-color-neutral-base-95, #{$color-background-row-active});
@@ -226,6 +243,10 @@
 
       &:hover {
         background-color: transparent;
+      }
+
+      &:focus {
+        box-shadow: none;
       }
 
       .slds-icon {
@@ -332,6 +353,20 @@
   left: 0;
   right: auto;
   transform: translateX(0);
+
+  &.slds-nubbin_top-left:before,
+  &.slds-nubbin_top-left:after,
+  &.slds-nubbin--top-left:before,
+  &.slds-nubbin--top-left:after,
+  &.slds-nubbin_bottom-left:before,
+  &.slds-nubbin_bottom-left:after,
+  &.slds-nubbin--bottom-left:before,
+  &.slds-nubbin--bottom-left:after {
+    @include rtl() {
+      /*! @noflip */
+      right: $spacing-large;
+    }
+  }
 }
 
 /**
@@ -346,6 +381,24 @@
   left: auto;
   right: 0;
   transform: translateX(0);
+
+  &.slds-nubbin_top-right:before,
+  &.slds-nubbin_top-right:after,
+  &.slds-nubbin--top-right:before,
+  &.slds-nubbin--top-right:after,
+  &.slds-nubbin_bottom-right:before,
+  &.slds-nubbin_bottom-right:after,
+  &.slds-nubbin--bottom-right:before,
+  &.slds-nubbin--bottom-right:after {
+    @include rtl() {
+      /*! @noflip */
+      right: auto;
+      /*! @noflip */
+      left: $spacing-large;
+      /*! @noflip */
+      margin-left: (($nubbin-size-default * 0.5) * -1);
+    }
+  }
 }
 
 /**

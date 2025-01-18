@@ -3,21 +3,62 @@
 # Modals Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.25.1
+
+### Updated
+
+- Updated the modals blueprint to display a white background for the close button (X) to improve visibility for people with low vision. Specifically, we updated the close button (X) color from white to gray by removing the `slds-button_icon-inverse` class. To display the modal close button correctly, don’t use the `slds-button_icon-inverse` class for your close button markup.
+
+## 2.25.0
+
+### Updated
+
+- Updated background color of the Modal's close icon along with its active state styling
+
+## 2.24.0
+
+### Changed
+
+- Added tabindex to the heading element to make it programmatically focusable.
+
+### Fixed
+
+- Fixed modal by removing code explicitly scoped to patching internal, private implementations. Appropriate styles will be displayed again.
+
+## 2.23.2
+
+### Changed
+
+- Fixed token notation in header padding-right property
+
+## 2.22.0
+
+### Changed
+
+- Optimized full size option and refactored to use CSS grid.
+- Updated full size variant to trigger at the `$mq-small` breakpoint to prevent larger devices from receiving the variant.
 
 ## 2.21.0
-### Fixed  
+
+### Fixed
+
 - Fixed `aria-labelledby` to meet accessibility requirements specifically for screen readers.
 
 ## 2.21.0
+
 ### Changed
-- Added full size option for modal. This will allow the modal to reach full screen for mobile screen size and devices. When screen is bigger than mobile screen width (from 768px), full size modal will take on large size modal behaviour. 
+
+- Added full size option for modal. This will allow the modal to reach full screen for mobile screen size and devices. When screen is bigger than mobile screen width (from 768px), full size modal will take on large size modal behaviour.
 - Changed close button to meet accessibility requirement when in full size and in mobile width.
 
 ## 2.19.0
+
 ### Changed
+
 - Added tabindex to Footless example for programmatic focus use case.
 
 ## 2.18.0
+
 ### Changed
 
 - Added `slds-modal__content_footless` class to example for clarity.
@@ -27,7 +68,6 @@
 
 ### Added
 
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
 - Added CSS Custom Property reassignments for variants and states.
 - Added clarifying notes around modal focus for accessibility.
 - Added `.slds-modal__content_headless` and `slds-modal__content_footless` classes for styling modal content.

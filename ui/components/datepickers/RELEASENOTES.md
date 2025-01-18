@@ -3,6 +3,51 @@
 # Datepickers Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.25.4
+
+### Updated
+
+- Date format is now hidden via `.slds-assistive-text` by default. This remains hidden when there are errors present on the input.
+- Date format becomes visible when the input has focus by removing `.slds-assistive-text`.
+- Date format is shown as an example date prefixed with "Format: " (e.g., Format: 12/31/2024).
+
+## 2.25.1
+
+### Added
+
+- Add outline for selected date
+- Add outline for selected range of dates
+
+## 2.25.0
+
+### Added
+
+- Add inline date format `div` with content `mm/dd/yyyy` for all datepickers that are not in error state.
+- Add inline date format `div` with content `mm/dd/yyyy` for the date portion of all datetime-pickers that are not in error state.
+- Add in focus accessibility guideline when closing calendar.
+
+### Updated
+
+- Updated datepicker component blueprint with the required date input format to improve accessibility and meet Web Content Accessibility Guidelines (WCAG).
+
+## 2.24.5
+
+### Added
+
+- Added shadow for today's date to maintain accessibility
+
+## 2.24.0
+
+### Fixed
+
+- Removed `aria-labelledby` from `<table />` element on the blueprint
+- Update `aria-live` from "assertive" to "polite" and `aria-atomic` from "true" to "false" for the month title `<h2>` in `DatepickerHeader` on the blueprint
+
+## 2.22.0
+
+### Added
+
+- Added datepicker example with field level tooltip
 
 ## 2.17.0
 

@@ -1,6 +1,6 @@
 // https://docs.github.com/en/rest/reference/commits#create-a-commit-status
-const { Octokit } = require("@octokit/rest");
-const { createAppAuth } = require("@octokit/auth-app");
+import { Octokit } from "@octokit/rest";
+import { createAppAuth } from "@octokit/auth-app";
 
 const batchesDataArg = process.env.batchesData || `{ "dev": null }`;
 console.log(batchesDataArg);
@@ -56,7 +56,7 @@ const appOctokit = new Octokit({
       repo,
       sha,
       state: failed + unresolved + vrtNew === 0 ? "success" : "failure",
-      target_url: `https://salesforceuxeyes.applitools.com/app/test-results/${id}`,
+      target_url: `https://sfdceyes.applitools.com/app/test-results/${id}`,
       description: `${failed} Failed / ${unresolved} Unresolved / ${vrtNew} New / ${passed} Passed`,
       context: "Applitools (VRT)",
     }

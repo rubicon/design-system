@@ -85,7 +85,7 @@
   &[disabled],
   &:disabled {
     background-color: transparent;
-    border-color: var(--slds-g-color-neutral-100-opacity-10, #{$color-border-button-inverse-disabled});
+    border-color: var(--slds-g-color-neutral-100-opacity-25, #{$color-border-button-inverse-disabled});
   }
 }
 
@@ -103,6 +103,11 @@
     border-color: var(--slds-g-color-neutral-base-80, #{$brand-disabled});
     color: var(--slds-g-color-neutral-base-100, #{$color-text-button-brand-disabled});
   }
+
+  &:focus {
+    box-shadow: var(--slds-g-shadow-outset-focus-1);
+    outline: 0;
+  }
 }
 
 
@@ -117,7 +122,7 @@
 
   &[disabled],
   &:disabled {
-    border-color: var(--slds-g-color-border-base-4, #{$button-color-border-primary});
+    border-color: var(--slds-g-color-border-base-1, #{$button-color-border-primary});
     background-color: var(--slds-g-color-neutral-base-100, #{$color-background-button-default-disabled});
   }
 }
@@ -142,13 +147,19 @@
     @include focus-inverse;
   }
 
+  &:focus {
+    box-shadow: var(--slds-g-shadow-inset-focus-1, #{$shadow-button-focus});
+    border-color: transparent;
+    outline: 0;
+  }
+
   &:active {
     color: var(--slds-g-color-neutral-100-opacity-50, #{$color-text-link-inverse-active});
   }
 
   &[disabled],
   &:disabled {
-    color: var(--slds-g-color-neutral-100-opacity-10, #{$color-text-link-inverse-disabled});
+    color: var(--slds-g-color-neutral-100-opacity-25, #{$color-text-link-inverse-disabled});
   }
 }
 

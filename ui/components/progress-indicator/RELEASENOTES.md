@@ -2,13 +2,28 @@
 
 # Progress Indicator Release Notes
 
+<!-- ## [Unreleased] -->
+
+## 2.24.0
+
+### Changed
+
+- Updated Progress Step `button` to `div`.
+- Added tabindex="0" to above `div` to make it focusable.
+- Removed `aria-describedby` and `title` attributes.
+- Updated focus style for Web and Mobile.
+
+## 2.22.1
+
+### Fixed
+
+- Matching styles for [dir=rtl] added.
 ## 2.21.0
 
 ### Added
 
 - Added id to aria-labelledby to meet accessibility requirements.
 
-<!-- ## [Unreleased] -->
 ## 2.16.0
 
 ### Added

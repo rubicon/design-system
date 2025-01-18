@@ -4,6 +4,12 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.25.0
+
+### Added
+- Added aria attributes for required variant
+
+
 ## 2.18.0
 
 ### Added
@@ -25,7 +31,6 @@
 
 ### Added
 
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
 - Added CSS Custom Property reassignments for variants and states
 
 ### Changed

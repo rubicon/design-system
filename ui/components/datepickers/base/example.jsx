@@ -14,6 +14,10 @@ import Input from '../../input/';
 
 const dateInputId = 'date-input-id';
 const demoStyles = 'height: 25rem;';
+const demoStylesDropdownClosed = 'height: 6rem;';
+
+export const DATE_EXAMPLE = '12/31/2024'
+export const DATE_FORMAT_TEXT = `Format: ${DATE_EXAMPLE}`
 
 /* -----------------------------------------------------------------------------
     Private
@@ -45,8 +49,8 @@ let DatepickerHeader = props => (
         />
       </div>
       <h2
-        aria-atomic="true"
-        aria-live="assertive"
+        aria-atomic="false"
+        aria-live="polite"
         className="slds-align-middle"
         id={`${props.idPrefix}-month`}
       >
@@ -144,7 +148,6 @@ export let DatePicker = props => (
   <DatepickerContainer className="slds-dropdown slds-dropdown_left">
     <DatepickerHeader idPrefix={props.idPrefix} />
     <table
-      aria-labelledby={`${props.idPrefix}-month`}
       aria-multiselectable="true"
       className="slds-datepicker__month"
       role="grid"
@@ -448,7 +451,7 @@ export let DatePickerElement = props => (
   <FormElement
     formElementClassName={
       'slds-dropdown-trigger slds-dropdown-trigger_click' +
-      (props.isOpen && ' slds-is-open')
+      (props?.isOpen ? ' slds-is-open' : '')
     }
     labelContent={props.labelContent}
     inputId={props.dateInputId}
@@ -456,6 +459,11 @@ export let DatePickerElement = props => (
     hasError={props.hasError}
     isRequired={props.isRequired}
     isDisabled={props.isDisabled}
+    hasTooltip={props.hasTooltip}
+    showTooltip={props.showTooltip}
+    fieldLevelMessage={props.fieldLevelMessage}
+    inlineMessage={!props.hasError && props.dateFormat}
+    hasHiddenInlineMessage={!props.showDateFormat}
     dropdown={
       (!props.isDisabled &&
         <DatePicker
@@ -502,6 +510,7 @@ export default [
         dateInputId={dateInputId + '-default'}
         isOpen
         todayActive
+        dateFormat={DATE_FORMAT_TEXT}
       />
     )
   }
@@ -522,6 +531,7 @@ export let states = [
         dateSelected="single"
         dateRange="week-4"
         defaultValue="06/24/2021"
+        dateFormat={DATE_FORMAT_TEXT}
       />
     )
   },
@@ -552,6 +562,7 @@ export let states = [
         isOpen
         todayActive
         isRequired
+        dateFormat={DATE_FORMAT_TEXT}
       />
     )
   },
@@ -572,6 +583,26 @@ export let states = [
     )
   },
   {
+    id: 'datepicker-with-tooltip',
+    label: 'Date Picker - With tooltip',
+    demoStyles: demoStyles,
+    element: (
+      <DatePickerElement
+        idPrefix="pickerRequired"
+        labelContent="Date"
+        dateInputId={dateInputId + '-required'}
+        todayActive
+        isRequired
+        isOpen
+        defaultValue="Jan 1 2023"
+        fieldLevelMessage="Format: mmm d yyyy | ex: Jan 1 2023"
+        hasTooltip
+        showTooltip
+        dateFormat={DATE_FORMAT_TEXT}
+      />
+    )
+  },
+  {
     id: 'datepicker-disabled',
     label: 'Datepicker - disabled',
     demoStyles: 'height: 8rem;',
@@ -582,22 +613,27 @@ export let states = [
         labelContent="Date"
         dateInputId={dateInputId + '-table'}
         isDisabled
+        dateFormat={DATE_FORMAT_TEXT}
+      />
+    )
+  },
+  {
+    id: 'date-format-visible',
+    label: 'Date Picker - date format visible',
+    demoStyles: demoStylesDropdownClosed,
+    element: (
+      <DatePickerElement
+        idPrefix="pickerDateFormatVisible"
+        labelContent="Date"
+        dateInputId={dateInputId + '-date-format-visible'}
+        dateFormat={DATE_FORMAT_TEXT}
+        showDateFormat
       />
     )
   }
 ];
 
 export let examples = [
-  {
-    id: 'mobile',
-    label: 'Mobile',
-    demoStyles: demoStyles,
-    element: (
-      <FormElement labelContent="Date" inputId={dateInputId + '-mobile'}>
-        <Input id={dateInputId + '-mobile'} type="datetime-local" />
-      </FormElement>
-    )
-  },
   {
     id: 'datepicker-in-datatable',
     label: 'Datepicker in a Data Table',
@@ -610,6 +646,7 @@ export let examples = [
           dateInputId={dateInputId + '-table'}
           isOpen
           todayActive
+          dateFormat={DATE_FORMAT_TEXT}
         />
       </SimpleTable>
     )
@@ -629,6 +666,7 @@ export let examples = [
           dateSelected="single"
           dateRange="week-4"
           defaultValue="06/24/2021"
+          dateFormat={DATE_FORMAT_TEXT}
         />
       </SimpleTable>
     )

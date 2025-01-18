@@ -20,7 +20,7 @@ export const ListboxWrapper = props => (
     role="listbox"
     aria-orientation={props.horizontal || props.inline ? 'horizontal' : null}
     aria-label = {props.ariaLabel}
-    tabindex="0"
+    tabIndex="0"
     aria-busy={props.ariaBusy ?props.ariaBusy:null}
   >
     {props.children}
@@ -49,7 +49,7 @@ export const ListboxList = props => (
  */
 export const ListboxItem = props => (
   <li
-    role="presentation"
+    role={props.isLoadingSpinner ? "option" : "presentation" }
     className={classNames('slds-listbox__item', props.className)}
   >
     {props.children}
@@ -304,9 +304,6 @@ export class Listbox extends Component {
   }
 
   renderEntityOptions(key) {
-    const uniqueId = this.props.hasUniqueId
-      ? _.uniqueId('option')
-      : null;
     const option = this.props.snapshot[key];
     return (
       <ListboxItem key={key}>
@@ -334,9 +331,6 @@ export class Listbox extends Component {
   }
 
   renderPlainOptions(key) {
-    const uniqueId = this.props.hasUniqueId
-      ? _.uniqueId('option')
-      : null;
     const option = this.props.snapshot[key];
     return (
       <ListboxItem key={key}>
@@ -400,7 +394,7 @@ export class Listbox extends Component {
                 .slice(0, count)
                 .map(this.renderPlainOptions)}
           {loading && (
-            <ListboxItem>
+            <ListboxItem isLoadingSpinner>
               <div className="slds-align_absolute-center slds-p-top_medium">
                 <Spinner className="slds-spinner_x-small slds-spinner_inline" />
               </div>

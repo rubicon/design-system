@@ -47,16 +47,16 @@
 .slds-file-selector__input {
 
   &:focus ~ .slds-file-selector__body > .slds-file-selector__button {
-    box-shadow: $shadow-button-focus;
+    box-shadow: var(--slds-g-shadow-outline-focus-1, #{$shadow-button-focus});
   }
 
   &[disabled] ~ .slds-file-selector__body {
-    color: var(--slds-g-color-neutral-base-10, #{$color-text-button-default-disabled});
+    color: var(--slds-g-color-neutral-base-50, #{$color-text-button-default-disabled});
 
     > .slds-file-selector__button {
       background: var(--slds-g-color-neutral-base-95, #{$color-background-button-brand-disabled});
       border-color: var(--slds-g-color-neutral-base-80, #{$color-border-button-brand-disabled});
-      color: var(--slds-g-color-neutral-base-30, #{$color-text-button-brand-disabled});
+      color: var(--slds-g-color-neutral-base-50, #{$color-text-button-brand-disabled});
     }
 
     > .slds-file-selector__body-icon {

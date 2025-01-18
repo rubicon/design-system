@@ -1,12 +1,34 @@
 <!-- Release notes authoring guidelines: http://keepachangelog.com/ -->
 
 # Popovers Release Notes
+
+<!-- ## [Unreleased] -->
+
+## 2.26.0
+
+## Updated
+
+- Updated header error background color
+
+## 2.25.2
+
+## Fixed
+
+- Fixed the incorrect text color for brand button variant when used in warning popover footer
+
+## 2.24.2
+
+## Updated
+
+- Update Menu Overflow variant margin-left
+
+
 ## 2.21.0
 
-### Added button to the story `body-max-height-small` to fix scrollable-region-focusable wcag issue.
 
 ### Added
 
+- Added button to the story `body-max-height-small` to fix scrollable-region-focusable wcag issue.
 - Added `title` attribute to meet accessibility requirements.
 
 ## 2.19

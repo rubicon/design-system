@@ -13,6 +13,10 @@
 .slds-rich-text-editor {
   border: $border-width-thin solid var(--slds-g-color-border-base-4, #{$color-border});
   border-radius: $border-radius-medium;
+
+  &[aria-label="disabled"] {
+    border: $border-width-thin solid var(--slds-g-color-border-base-1, #{$color-border});
+  }
 }
 
 /**
@@ -43,6 +47,10 @@
   border-top-right-radius: $border-radius-medium;
   border-bottom: $border-width-thin solid var(--slds-g-color-border-base-4, #{$color-border});
   background-color: var(--slds-g-color-neutral-base-95, #{$color-background});
+
+  &[aria-label="disabled"] {
+    border-bottom: $border-width-thin solid var(--slds-g-color-border-base-1, #{$color-border});
+  }
 }
 
 /**
@@ -152,8 +160,8 @@
  * @modifier
  */
 .slds-rich-text-editor.slds-has-focus {
-  border-color: var(--slds-g-color-brand-base-60, #{$color-border-input-active});
-  box-shadow: $shadow-button-focus;
+  border: $border-width-thin solid var(--slds-g-color-border-base-4, #{$color-border});
+  box-shadow: var(--slds-g-shadow-outset-focus-1, #{$shadow-button-focus});
 }
 
 /**
@@ -374,7 +382,7 @@
   }
 
   ol li {
-    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+    counter-set: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
     counter-increment: list-num;
 
     &:before {
@@ -387,7 +395,7 @@
       &:before {
         content: counter(list-1, lower-alpha) ". ";
       }
-      counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+      counter-set: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
     }
 
     &.ql-indent-2 {
@@ -396,7 +404,7 @@
       &:before {
         content: counter(list-2, lower-roman) ". ";
       }
-      counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+      counter-set: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
     }
 
     &.ql-indent-3 {
@@ -405,7 +413,7 @@
       &:before {
         content: counter(list-3, decimal) ". ";
       }
-      counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+      counter-set: list-4 list-5 list-6 list-7 list-8 list-9;
     }
 
     &.ql-indent-4 {
@@ -414,7 +422,7 @@
       &:before {
         content: counter(list-4, lower-alpha) ". ";
       }
-      counter-reset: list-5 list-6 list-7 list-8 list-9;
+      counter-set: list-5 list-6 list-7 list-8 list-9;
     }
 
     &.ql-indent-5 {
@@ -423,7 +431,7 @@
       &:before {
         content: counter(list-5, lower-roman) ". ";
       }
-      counter-reset: list-6 list-7 list-8 list-9;
+      counter-set: list-6 list-7 list-8 list-9;
     }
 
     &.ql-indent-6 {
@@ -432,7 +440,7 @@
       &:before {
         content: counter(list-6, decimal) ". ";
       }
-      counter-reset: list-7 list-8 list-9;
+      counter-set: list-7 list-8 list-9;
     }
 
     &.ql-indent-7 {
@@ -441,7 +449,7 @@
       &:before {
         content: counter(list-7, lower-alpha) ". ";
       }
-      counter-reset: list-8 list-9;
+      counter-set: list-8 list-9;
     }
 
     &.ql-indent-8 {
@@ -450,7 +458,7 @@
       &:before {
         content: counter(list-8, lower-roman) ". ";
       }
-      counter-reset: list-9;
+      counter-set: list-9;
     }
 
     &.ql-indent-9 {
@@ -486,7 +494,7 @@
   }
 
   li.ql-indent-1:not(.ql-direction-rtl) {
-    padding-left: 4.5em;
+    padding-left: 3.5em;
   }
 
   li.ql-indent-1.ql-direction-rtl.ql-align-right {
@@ -494,7 +502,7 @@
   }
 
   li.ql-indent-2:not(.ql-direction-rtl) {
-    padding-left: 7.5em;
+    padding-left: 5.5em;
   }
 
   li.ql-indent-2.ql-direction-rtl.ql-align-right {
@@ -502,7 +510,7 @@
   }
 
   li.ql-indent-3:not(.ql-direction-rtl) {
-    padding-left: 10.5em;
+    padding-left: 7.5em;
   }
 
   li.ql-indent-3.ql-direction-rtl.ql-align-right {
@@ -510,7 +518,7 @@
   }
 
   li.ql-indent-4:not(.ql-direction-rtl) {
-    padding-left: 13.5em;
+    padding-left: 9.5em;
   }
 
   li.ql-indent-4.ql-direction-rtl.ql-align-right {
@@ -518,7 +526,7 @@
   }
 
   li.ql-indent-5:not(.ql-direction-rtl) {
-    padding-left: 16.5em;
+    padding-left: 11.5em;
   }
 
   li.ql-indent-5.ql-direction-rtl.ql-align-right {
@@ -526,7 +534,7 @@
   }
 
   li.ql-indent-6:not(.ql-direction-rtl) {
-    padding-left: 19.5em;
+    padding-left: 13.5em;
   }
 
   li.ql-indent-6.ql-direction-rtl.ql-align-right {
@@ -534,7 +542,7 @@
   }
 
   li.ql-indent-7:not(.ql-direction-rtl) {
-    padding-left: 22.5em;
+    padding-left: 15.5em;
   }
 
   li.ql-indent-7.ql-direction-rtl.ql-align-right {
@@ -542,7 +550,7 @@
   }
 
   li.ql-indent-8:not(.ql-direction-rtl) {
-    padding-left: 25.5em;
+    padding-left: 17.5em;
   }
 
   li.ql-indent-8.ql-direction-rtl.ql-align-right {
@@ -550,7 +558,7 @@
   }
 
   li.ql-indent-9:not(.ql-direction-rtl) {
-    padding-left: 28.5em;
+    padding-left: 19.5em;
   }
 
   li.ql-indent-9.ql-direction-rtl.ql-align-right {

@@ -4,17 +4,11 @@
 
 <!-- ## [Unreleased] -->
 
-## 2.17.0
-
-### Added
-
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
-
-## 2.13.3
+## 2.24.0
 
 ### Changed
 
-- Treat Styling Hooks targeting text color as an element, previously referred to as a property. e.g. `--sds-c-tooltip-color-text` => `--sds-c-tooltip-text-color`.
+- Updated Tooltip component description.
 
 ## 2.13.0
 

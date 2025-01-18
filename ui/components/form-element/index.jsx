@@ -149,7 +149,7 @@ FormElementSpanFauxLabel.defaultProps = {
 };
 
 export const FormElementTooltip = props => {
-  const { showTooltip } = props;
+  const { showTooltip,fieldLevelMessage } = props;
 
   return (
     <div className="slds-form-element__icon">
@@ -166,10 +166,11 @@ export const FormElementTooltip = props => {
             position: 'absolute',
             top: '-45px',
             left: '-15px',
-            width: '170px'
+            width: fieldLevelMessage ? '220px':'170px'
           }}
         >
-          Some helpful information.
+          {fieldLevelMessage  || "Some helpful information."}
+
         </Tooltip>
       )}
     </div>
@@ -177,14 +178,20 @@ export const FormElementTooltip = props => {
 };
 
 FormElementTooltip.propTypes = {
-  showTooltip: PropTypes.bool
+  showTooltip: PropTypes.bool,
+  fieldLevelMessage: PropTypes.string
 };
 
 export const FormElementHelpMessage = props => {
   const { errorId, children } = props;
 
   return (
-    <div className="slds-form-element__help" id={errorId}>
+    <div
+      className={classNames(
+        "slds-form-element__help",
+        props.hasHiddenInlineMessage && 'slds-assistive-text',
+      )}
+      id={errorId}>
       {children}
     </div>
   );
@@ -192,6 +199,7 @@ export const FormElementHelpMessage = props => {
 
 FormElementHelpMessage.propTypes = {
   errorId: PropTypes.string,
+  hasHiddenInlineMessage: PropTypes.boolean,
   children: PropTypes.node
 };
 
@@ -315,6 +323,7 @@ Legend.propTypes = {
  * @prop {string}  labelClassName - Classnames to be added to the Form Element Label
  * @prop {object}  labelContent - Content of the label, can be a simple string or full object
  * @prop {boolean} hasHiddenLabel - If true, label is hidden using slds-assistive-text class
+ * @prop {boolean} hasHiddenInlineMessage - If true, help message is hidden using slds-assistive-text class
  * @prop {string}  inputId - ID of the input, used for the label's htmlFor
  * @prop {boolean} hasLeftIcon - Adds icon placement specific classes
  * @prop {boolean} hasRightIcon - Adds icon placement specific classes
@@ -344,6 +353,7 @@ export const FormElement = props => {
     labelClassName,
     labelContent,
     hasHiddenLabel,
+    hasHiddenInlineMessage,
     inputId,
     hasLeftIcon,
     hasRightIcon,
@@ -352,6 +362,7 @@ export const FormElement = props => {
     hasTooltip,
     showTooltip,
     inlineMessage,
+    fieldLevelMessage,
     column,
     role,
     dropdown,
@@ -409,7 +420,7 @@ export const FormElement = props => {
             showRequiredIndicator={showRequiredIndicator}
           />
         ))}
-      {hasTooltip && <FormElementTooltip showTooltip={showTooltip} />}
+      {hasTooltip && <FormElementTooltip showTooltip={showTooltip} {...(fieldLevelMessage && { fieldLevelMessage })}/>}
       <FormElementControl
         className={classNames(inputIconPositionClasses, formControlClassName)}
       >
@@ -421,7 +432,7 @@ export const FormElement = props => {
         {children}
       </FormElementControl>
       {inlineMessage && (
-        <FormElementHelpMessage errorId={errorId}>
+        <FormElementHelpMessage hasHiddenInlineMessage={hasHiddenInlineMessage} errorId={errorId}>
           {inlineMessage}
         </FormElementHelpMessage>
       )}
@@ -444,6 +455,7 @@ FormElement.propTypes = {
   isStacked: PropTypes.bool,
   isHorizontal: PropTypes.bool,
   hasHiddenLabel: PropTypes.bool,
+  hasHiddenInlineMessage: PropTypes.bool,
   hasLeftIcon: PropTypes.bool,
   hasRightIcon: PropTypes.bool,
   hasRightIconGroup: PropTypes.bool,
@@ -455,6 +467,7 @@ FormElement.propTypes = {
   inlineMessage: PropTypes.string,
   formElementClassName: PropTypes.string,
   formControlClassName: PropTypes.string,
+  fieldLevelMessage: PropTypes.string,
   column: PropTypes.number
 };
 

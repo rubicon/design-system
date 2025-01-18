@@ -4,18 +4,18 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.24.2
+
+## Removed
+
+- Remove max-width prop from accordion on focus/hover
+
 ## 2.18.0
 
 ### Fixed
 
 - Fix for sass undefined operation compile error.
 - Fix wrong computed css margin rules.
-
-## 2.17.0
-
-### Added
-
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks
 
 ## 2.16.0
 

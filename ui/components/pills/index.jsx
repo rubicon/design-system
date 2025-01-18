@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonIcon from '../button-icons/';
 import classNames from 'classnames';
-import SvgIcon from '../../shared/svg-icon';
+import { Tooltip } from '../tooltips/base/example';
 
 export let Pill = props => (
   <span className={classNames('slds-pill slds-pill_link', props.className)}>
@@ -32,11 +32,6 @@ export let PillContainer = props => {
         'slds-pill_container_bare': props.variant === 'container-bare'
       })}
     >
-      {props.type === 'listbox' && (
-        <div className="slds-assistive-text" id={props.id}>
-          Press delete or backspace to remove
-        </div>
-      )}
       {props.children}
     </div>
   );
@@ -45,9 +40,6 @@ export let PillContainer = props => {
 export let ListboxPill = props => (
   <span
     className={classNames('slds-pill', props.className)}
-    role="option"
-    tabIndex={props.tabIndex}
-    aria-selected="true"
   >
     {props.children}
     <span
@@ -57,10 +49,11 @@ export let ListboxPill = props => (
       {props.label || 'Pill Label'}
     </span>
     <span className="slds-icon_container slds-pill__remove" title="Remove">
-      <SvgIcon
-        className="slds-icon slds-icon_x-small slds-icon-text-default"
-        sprite="utility"
+      <ButtonIcon
+        className="slds-button_icon slds-pill__remove"
         symbol="close"
+        assistiveText="Remove"
+        title="Remove"
       />
     </span>
   </span>
@@ -72,9 +65,7 @@ export let ListboxPills = props => (
       'slds-listbox slds-listbox_horizontal',
       props.className
     )}
-    role="listbox"
     aria-label="Selected Options:"
-    aria-orientation="horizontal"
     aria-describedby={props.id}
   >
     {props.children}
@@ -84,9 +75,78 @@ export let ListboxPills = props => (
 export let ListboxPillsItem = props => (
   <li
     className={classNames('slds-listbox-item', props.className)}
-    role="presentation"
     aria-hidden={props['aria-hidden']}
   >
     {props.children}
   </li>
+);
+
+export let PillWithTruncation = props => (
+  <span
+    className={classNames('slds-pill', props.className)}
+    tabIndex={props.tabIndex}
+    aria-selected="true"
+  >
+    {props.children}
+    <Tooltip
+      className="slds-nubbin_bottom-left"
+      id="help"
+      style={{
+        position: 'absolute',
+        top: '-45px',
+        left: '-2px'
+      }}
+    >
+      {props.label || 'Pill label that is longer than the area that contains it'}
+
+    </Tooltip>
+    <span
+      className="slds-pill__label"
+      title={props.label || 'Pill label that is longer than the area that contains it'}
+    >
+      {props.label || 'Pill label that is longer than the area that contains it'}
+    </span>
+    <span className="slds-icon_container slds-pill__remove" title="Remove">
+      <ButtonIcon
+        className="slds-button_icon slds-pill__remove"
+        symbol="close"
+        assistiveText="Remove"
+        title="Remove"
+      />
+    </span>
+  </span>
+);
+
+export let LinkedPillWithTruncation = props => (
+  <span className={classNames('slds-pill slds-pill_link', props.className)}>
+    {props.children}
+    <Tooltip
+      className="slds-nubbin_bottom-left"
+      id="help"
+      style={{
+        position: 'absolute',
+        top: '-45px',
+        left: '-2px'
+      }}
+    >
+      {props.label || 'Pill label that is longer than the area that contains it'}
+
+    </Tooltip>
+    <a
+      href="#"
+      className="slds-pill__action"
+      title={props.label || 'Full pill label verbiage mirrored here'}
+      onClick={e => e.preventDefault()}
+    >
+      <span className="slds-pill__label">
+        {props.label || 'Pill label that is longer than the area that contains it'}
+      </span>
+    </a>
+    <ButtonIcon
+      className="slds-button_icon slds-pill__remove"
+      symbol="close"
+      assistiveText="Remove"
+      title="Remove"
+    />
+  </span>
 );

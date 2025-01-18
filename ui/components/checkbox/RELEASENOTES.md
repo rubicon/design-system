@@ -3,6 +3,10 @@
 # Checkbox Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.22.1
+
+### Fixed
+- High contrast when the focus is placed on it.
 
 ## 2.18.0
 
@@ -25,7 +29,6 @@
 
 ### Added
 
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
 - Added CSS Custom Property reassignments for variants and states
 
 ### Changed

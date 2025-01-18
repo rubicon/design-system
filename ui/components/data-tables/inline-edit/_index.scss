@@ -149,7 +149,9 @@
   box-shadow: $brand-accessible-active 0 0 0 1px inset, $brand-accessible-active -0.25rem 0 0 inset;
 }
 
-
+.slds-is-resizable .slds-th__action:focus {
+  box-shadow: var(--slds-g-shadow-inset-focus-1, #{$shadow-button-focus});
+}
 
 /**
  * Informs a table cell that it has editing capabilities
@@ -162,7 +164,7 @@
 
   &.slds-has-focus { // This is the focused state
     background-color: var(--slds-g-color-neutral-base-100, #{$color-background-alt});
-    box-shadow: $brand-accessible-active 0 0 0 1px inset;
+    box-shadow: var(--slds-g-shadow-inset-inverse-focus-1, #{$shadow-button-focus});
 
     .slds-button__icon_edit,
     .slds-button__icon--edit,
@@ -192,6 +194,7 @@
 
     &,
     &:hover {
+      font-weight: 700;
       background-color: var(--slds-g-color-palette-yellow-90, #{$color-background-highlight});
     }
   }
@@ -207,6 +210,7 @@
 
     &,
     &:hover {
+      font-weight: 700;
       background-color: var(--slds-g-color-palette-yellow-90, #{$color-background-highlight});
       box-shadow: var(--slds-g-color-error-base-40, #{$color-border-error}) 0 0 0 ($border-width-thick) inset;
     }
@@ -228,7 +232,7 @@
 
   &[disabled],
   &:disabled {
-   color: var(--slds-g-color-neutral-base-50, #{$color-text-icon-default});
+    color: var(--slds-g-color-neutral-base-50, #{$color-text-icon-default});
   }
 }
 
@@ -331,24 +335,25 @@
 
     .slds-button__icon_edit,
     .slds-button__icon--edit {
-      opacity: 0.5;
+      fill: var(--slds-g-color-neutral-base-50, #{$color-text-icon-default});
+      opacity: 1;
 
       &:hover,
       &:focus {
         fill: var(--slds-g-color-brand-base-50, #{$color-text-brand});
-        opacity: 1;
       }
     }
 
     .slds-button__icon_lock,
     .slds-button__icon--lock {
-      opacity: 0.5;
+      fill: var(--slds-g-color-neutral-base-50, #{$color-text-icon-default});
+      opacity: 1;
     }
   }
 
   &.slds-has-focus .slds-button__icon_edit,
   &.slds-has-focus .slds-button__icon--edit {
-    fill: var(--slds-g-color-neutral-base-50, #{$color-text-icon-default});
+    fill: var(--slds-g-color-neutral-base-10, #{$color-text-default});
     opacity: 1;
   }
 }

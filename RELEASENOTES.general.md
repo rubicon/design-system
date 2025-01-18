@@ -1,9 +1,400 @@
 <!-- Release notes authoring guidelines: http://keepachangelog.com/ -->
 <!-- On release, add general notes here. In time the legacy release notes will be add to this -->
+## 2.26.0 - January 16, 2025
+
+- Update icons to `v10.11.1`
+  - Renamed summary_usage to usage_summary
+  - Renamed summary_liable to usage_billing_period_item
+  - Renamed usage_rateable_summary to usage_ratable_summary
+
+- Update icons to `v10.11.0`
+  - Standard Set:
+    - Added ad_event_action
+    - Added ad_event_cause
+    - Added ad_event_effect
+    - Added ad_event_factor
+    - Added ad_event_info
+    - Added ad_event_outcome
+    - Added ad_event_party
+    - Added adverse_event
+    - Added billing
+    - Added calculated_dimension
+    - Added calculated_measure
+    - Added disease_defintion_criteria
+    - Added disese_investigation
+    - Added disease_outbreak
+    - Added edit_form
+    - Added enrollee_status
+    - Added eval_result
+    - Added event_ext
+    - Added life_sciences
+    - Added map_line_item
+    - Added medication_administration
+    - Added member_period
+    - Updated metric
+    - Added patient_service
+    - Added procedure_output_resolution
+    - Added program_detail
+    - Added program_site
+    - Added program_status
+    - Added prospect
+    - Added replace
+    - Added reset_password
+    - Added send_log
+    - Added study
+    - Added study_candidate
+    - Added study_related
+    - Added sub_metric
+    - Added summary_liable
+    - Added summary_usage
+    - Added table
+    - Added transaction_usage_entitlement
+    - Added usage_entitlement_account
+    - Added usage_entitlement_bucket
+    - Added usage_entitlement_entry
+    - Added usage_ratable_summary
+
+  - Utility Set:
+    - Added agent_astro
+    - Added applied_amount
+    - Added billing
+    - Added border_all
+    - Added border_bottom
+    - Added border_left
+    - Added border_right
+    - Added border_top
+    - Added co_ins_infusion
+    - Added co_insurance
+    - Added copay
+    - Added copay_infusion
+    - Added coverage_type
+    - Added deductible
+    - Added deductible_met
+    - Added deny_access_field
+    - Added deny_access_object
+    - Added deny_access_row
+    - Added donut_chart
+    - Added emoji_above_average.svg
+    - Added emoji_average.svg
+    - Added emoji_bad.svg
+    - Added emoji_below_average.svg
+    - Added emoji_excellent.svg
+    - Added emoji_good.svg
+    - Added emoji_outstanding.svg
+    - Added emoji_very_bad.svg
+    - Added emoji_very_good.svg
+    - Added emoji_worst.svg
+    - Added expense
+    - Added expense_report
+    - Added field_currency_calc
+    - Added field_date_calc
+    - Added field_date_time_calc
+    - Added field_dimension_calc
+    - Added field_measure_calc
+    - Added list_email
+    - Added lt_max
+    - Added lt_remaining
+    - Added mask_field
+    - Added messaging_conversation
+    - Added oop_annual
+    - Added oop_applied
+    - Added oop_max
+    - Added oop_total
+    - Added partner_fund_request
+    - Added paused_call
+    - Added people_score
+    - Added policy
+    - Added pre_auth
+    - Added pro_network
+    - Added regenerate
+    - Added response_date
+    - Added sales_channel
+    - Added status_code
+    - Added suggested_for_you
+    - Updated textbox
+
+- Updated the deprecated hooks. This process was to update the deprecated component level hooks to latest ones.
+- We have added the latest hooks at the front and kept all the previously existed ones as fallback value to support backward compatibility
+- The components updated are - accordion, alert, avatar, breadcrumbs, buttons, card, input, modals, pills, tabs, textarea, toast, tooltips.
+
+## Updated
+
+- Updated popover header error background color.
+
+## 2.25.6 - January 16, 2024
+
+## 2.25.5 - December 2, 2024
+
+- Updated icons to `v10.10.1`
+  - Utility Set:
+    - Added agent_astro
+
+## 2.25.4 - November 14, 2024
+
+## 2.25.3 - October 10, 2024
+
+## Fixed
+ - Updated neutral-50 color to close icon when the '.slds-button_icon-inverse' class is not present beside/under the .slds-modal__close selector
+
+## 2.25.2 - September 26, 2024
+
+## 2.25.1 - September 19, 2024
+
+## 2.25.0 - August 15, 2024
+
+- Updated icons to `v10.10.0`
+  - Standard Set:
+    - Added data_governance
+    - Added data_lake_objects
+    - Added inbox
+    - Added metric
+    - Added metric_definition
+    - Added omni_channel
+    - Added operation_plan
+    - Added operation_plan_execution
+    - Added operation_plan_request
+    - Added operation_plan_step
+    - Added operation_plan_step_execution
+    - Added policy
+    - Added prep_flow
+    - Added query_editor
+    - Added robot
+    - Added taxonomy
+    - Added visualization
+    - Added workspace
+
+  - Utility Set:
+    - Added angle
+    - Added card_details
+    - Added circle
+    - Added cms
+    - Added contactless_pay
+    - Added format
+    - Added height
+    - Added highlight
+    - Added line_chart
+    - Added output
+    - Added replay
+    - Added robot
+    - Added sort_ascending
+    - Added width
+    - Added work_queue
+
+  - Doctype Set
+    - Added shared_folder
+
+## 2.24.6 - August 28, 2024
+
+## Updated
+
+ - Updated documentation in Styling Hooks table
+
+## 2.24.5 - June 27, 2024
+
+## Added
+- Added shadow for today's date to maintain accessibility
+
+## 2.24.4 - June 13, 2024
+
+## Updated
+
+- Updated focus ring color for links to blue-40.
+
+## 2.24.3 - Jun 6, 2024
+
+## Updated
+
+- bump icon version
+
+## 2.24.2 - May 2, 2024
+
+## 2.24.1 - April 25, 2024
+
+## Updated
+
+- Updated focus styles for buttons and input elements
+- Updated account icon bg to blue-30
+
+## 2.24.0 - April 18, 2024
+
+## Added
+
+- New focus styles incorporated to all components.
+- Updated icons to `v10.8.3`
+  - Standard Set:
+    - Added account_score
+    - Added aggregate
+    - Added app_form_participant
+    - Added app_form_product_participant
+    - Added cost_model
+    - Added labels
+    - Added list_fee
+    - Added list_rate
+    - Added party_profile
+    - Added path_experiment
+    - Added people_score
+    - Added price_adjustment_schedule
+    - Added price_adjustment_tier
+    - Added program_cohort
+    - Added program_cohort_member
+    - Added rate_adjustment
+    - Added record_consent
+    - Added whatsapp
+
+  - Utility Set:
+    - Added aggregate
+    - Added array
+    - Added bottom_group_alignment
+    - Added cant_sync
+    - Added center_group_alignment
+    - Added columns
+    - Added fully_synced
+    - Added inner_join
+    - Added join
+    - Added left_join
+    - Added not_in_sync
+    - Added not_saved
+    - Added outer_join
+    - Added path_experiment
+    - Added program_cohort
+    - Added program_cohort_member
+    - Added record_consent
+    - Added right_join
+    - Added skill
+    - Added sync_in_progress
+    - Added top_group_alignment
+
+## 2.23.2 - February 1, 2024
+
+- Moved global styling hooks from slds-wcag class selector to root selector scope.
+
+## 2.23.1 - January 16, 2024
+
+## 2.23.0 - December 14, 2023
+
+- Inbuilt Header introduced for tabs. The header scales as per the size modifiers.
+- Updated icons to `v10.8.2`
+  - Standard Set:
+    - Added custody_chain_entry
+    - Added custody_entry_verification
+    - Added custody_override
+    - Updated data_cloud
+    - Added digital_verification_config_group
+    - Added digital_verification_config
+    - Added linked
+    - Added prompt_builder
+    - Added real_time
+    - Added scheduling_workspace_territory
+    - Updated story
+    - Added title_party
+    - Added work_summary
+
+  - Utility Set:
+    - Added add_above
+    - Added add_below
+    - Updated apex_alt
+    - Added asset_repossessed
+    - Updated data_cloud
+    - Updated einstein_alt
+    - Added locked_with_additions
+    - Added payment_deferred
+    - Added plane
+    - Added prompt_builder
+    - Added real_time
+    - Added record_collection
+    - Added sparkle
+
+- Updated `disabled` state colors for all components.
+- Added `aria-label="disabled"` to `RichTextEditor` component which is similar to `RteToolbar`.
+- Added Button element for `Pill` remove feature. Now remove button is focusable and can be clickable.
+- Updated RTL stylings for `setup-assistant` component
+- Added new shadow styling hook to implement new focus style.
+
+## 2.22.2 - November 9, 2023
+
+
+## 2.22.1 - November 2, 2023
+
+
+## 2.22.0 - August 16, 2023
+
+- Updated icons to `v10.7.0`
+  - Standard Set:
+    - Added `attribute_based_pricing`
+    - Added `bundles_pricing`
+    - Added `data_cloud`
+    - Added `data_graph`
+    - Added `dynamic_highlights_panel`
+    - Added `header_discounts`
+    - Added `impact_outcome`
+    - Added `impact_strategy_assignment`
+    - Added `impact_strategy`
+    - Added `indicator_assignment`
+    - Added `indicator_definition`
+    - Added `indicator_performance_period`
+    - Added `indicator_result`
+    - Added `manual_discounts`
+    - Added `no_code_model`
+    - Added `outcome_activity`
+    - Added `panel_detail`
+    - Added `price_adjustment_matrix`
+    - Added `registered_model`
+    - Added `repeaters`
+    - Added `scheduling_workspace`
+    - Updated `story`
+    - Added `time_period`
+    - Added `uploaded_model`
+    - Added `volume_discounts`
+    - Added `walkthroughs`
+
+  - Utility Set:
+    - Added `apex_alt`
+    - Added `data_cloud`
+    - Added `data_graph`
+    - Added `data_transforms`
+    - Added `guidance`
+    - Added `indicator_performance_period`
+    - Added `mixed_sources_mapping`
+    - Added `page_structure`
+    - Added `visibility_rule_assigned`
+    - Added `walkthroughs`
+
+## Fixed
+
+- Updated background colors for Standard and Actions icons
+- Standard Icons Set
+  - Updated `event`
+  - Updated `dashboard`
+  - Updated `case`
+  - Updated `note`
+  - Updated `contact`
+  - Updated `lead`
+  - Updated `campaign`
+  - Updated `products`
+  - Updated `user`
+  - Updated `contract`
+  - Updated `category`
+  - Updated `catalog`
+  - Updated `store`
+  - Updated `buyer_account`
+  - Updated `buyer_group`
+  - Updated `delegated_account`
+  - Updated `entitlement_policy`
+
+## 2.21.5 - July 19, 2023
+
+## 2.21.4 - July 17, 2023
+
+- Updated icons to `v10.6.1`
+  - Utility Set:
+    - Added `edit_gpt`
+    - Updated `einstein`
+    - Added `sparkles`
 
 ## 2.21.3 - June 29, 2023
 
 ## Fixed
+
 - Correction in icons package version.
 - Updated placeholder text color for Rich Text Editor
 - Updated docked utility component's unread notification state icon color
@@ -12,6 +403,7 @@
 ## 2.21.2 - June 15, 2023
 
 ## Fixed
+
 - Fixed text-selection color issues which was introduced by WCAG 2.1 updates.
 - Fixed border colors for components.
 

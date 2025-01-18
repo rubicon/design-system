@@ -3,11 +3,28 @@
 # Pills Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.24.0 - Upcoming
+
+## Changed
+
+- Fixed tap target size of close icon in Pill to meet 24x24.
+
+## Added
+
+- Added new truncated state for Pill as a tooltip.
+- Updated focus style.
+
+## 2.23.1
+
+## Changed
+
+- Added Button element for `Pill` remove feature. Now remove button is focusable and can be clickable.
+- Removed non applicable ARIA attributes after markup updates.
+
 ## 2.17.0
 
 ### Added
 
-- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
 - Added reassignment of Styling Hooks for component states.
 
 ## 2.14.0
@@ -15,12 +32,6 @@
 ### Changed
 
 - Fixed incorrect styling hooks on focus state, suffix is now using `-focus` vs `-active`.
-
-## 2.13.3
-
-### Changed
-
-- Treat Styling Hooks targeting text color as an element, previously referred to as a property. e.g. `--sds-c-pill-color-text` => `--sds-c-pill-text-color`.
 
 ## 2.13.0
 

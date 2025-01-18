@@ -15,10 +15,10 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding-top: var(--slds-c-button-spacing-block-start, var(--sds-c-button-spacing-block-start, 0));
-  padding-right: var(--slds-c-button-spacing-inline-end, var(--sds-c-button-spacing-inline-end, 0));
-  padding-bottom: var(--slds-c-button-spacing-block-end, var(--sds-c-button-spacing-block-end, 0));
-  padding-left: var(--slds-c-button-spacing-inline-start, var(--sds-c-button-spacing-inline-start, 0));
+  padding-top: var(--slds-c-button-spacing-blockstart, var(--slds-c-button-spacing-block-start, var(--sds-c-button-spacing-block-start, 0)));
+  padding-right: var(--slds-c-button-spacing-inlineend, var(--slds-c-button-spacing-inline-end, var(--sds-c-button-spacing-inline-end, 0)));
+  padding-bottom: var(--slds-c-button-spacing-blockend, var(--slds-c-button-spacing-block-end, var(--sds-c-button-spacing-block-end, 0)));
+  padding-left: var(--slds-c-button-spacing-inlinestart, var(--slds-c-button-spacing-inline-start, var(--sds-c-button-spacing-inline-start, 0)));
   background: none; // Reset underlying styles like VF
   background-color: var(--slds-c-button-color-background, var(--sds-c-button-color-background, transparent));
   background-clip: border-box;
@@ -51,7 +51,7 @@
   }
 
   &:focus {
-    box-shadow: var(--slds-c-button-shadow-focus, var(--sds-c-button-shadow-focus, #{$shadow-button-focus}));
+    box-shadow: var(--slds-c-button-shadow-focus, var(--sds-c-button-shadow-focus, var(--slds-g-shadow-outline-focus-1)));
     outline: 0;
   }
 
@@ -108,8 +108,7 @@ a.slds-button {
 
   &:focus {
     /*! @css-var-fallback box-shadow */
-    --slds-c-button-shadow-focus: var(--sds-c-button-shadow-focus, #{$shadow-button-focus});
-    outline: 0;
+    --slds-c-button-shadow-focus: var(--sds-c-button-shadow-focus, var(--slds-g-shadow-outline-focus-1));
   }
 }
 
@@ -158,7 +157,7 @@ a.slds-button--inverse:focus {
     var(--slds-g-color-neutral-base-100, #{$color-border-button-focus-inverse})));
 
   /*! @css-var-fallback box-shadow */
-  --slds-c-button-shadow: var(--slds-c-button-inverse-shadow-focus, var(--sds-c-button-inverse-shadow-focus, #{$shadow-button-focus-inverse}));
+  --slds-c-button-shadow: var(--slds-s-button-shadow-focus-inverse, var(--slds-c-button-inverse-shadow-focus, var(--sds-c-button-inverse-shadow-focus, #{$shadow-button-focus-inverse})));
   outline: none;
 }
 
@@ -220,7 +219,7 @@ a.slds-button--inverse:focus {
   &:disabled {
     // @todo: global shared disabled button hooks
     background-color: var(--slds-g-color-neutral-base-100, #{$color-background-button-default-disabled});
-    border-color: var(--slds-g-color-border-base-4, #{$button-color-border-primary});
+    border-color: var(--slds-g-color-border-base-1, #{$button-color-border-primary});
   }
 }
 
@@ -262,7 +261,7 @@ a.slds-button--inverse:focus {
     --slds-c-button-color-background-active: var(--slds-c-button-brand-color-background-active, var(--sds-c-button-brand-color-background-active, #{$brand-accessible-active}));
 
     /*! @css-var-fallback border-color */
-    --slds-c-button-color-border-active: var(--sds-c-button-brand-color-border-active, var(--sds-c-button-brand-color-border-active, #{$brand-accessible-active}));
+    --slds-c-button-color-border-active: var(--slds-c-button-brand-color-border-active, var(--sds-c-button-brand-color-border-active, #{$brand-accessible-active}));
 
     /*! @css-var-fallback color */
     --slds-c-button-text-color-active: var(--slds-c-button-brand-text-color-active, var(--sds-c-button-brand-text-color-active, var(--slds-g-color-neutral-base-100, #{$color-text-brand-primary})));
@@ -308,14 +307,14 @@ a.slds-button--inverse:focus {
     --slds-c-button-color-background-active: var(--slds-c-button-outline-brand-color-background-active, var(--sds-c-button-outline-brand-color-background-active, var(--slds-g-color-neutral-base-95, #{$color-background-button-default-active})));
 
     /*! @css-var-fallback border-color */
-    --slds-c-button-color-border-active: var(--sds-c-button-outline-brand-color-border-active, var(--sds-c-button-outline-brand-color-border-active, #{$brand-accessible}));
+    --slds-c-button-color-border-active: var(--slds-c-button-outline-brand-color-border-active, var(--sds-c-button-outline-brand-color-border-active, #{$brand-accessible}));
   }
 
   &[disabled],
   &:disabled {
     // @todo: global shared disabled button hooks
     background-color: var(--slds-g-color-neutral-base-100, #{$color-background-button-default-disabled});
-    border-color: var(--slds-g-color-border-base-4, #{$button-color-border-primary});
+    border-color: var(--slds-g-color-border-base-1, #{$button-color-border-primary});
   }
 }
 
@@ -344,6 +343,10 @@ a.slds-button--inverse:focus {
 
     /*! @css-var-fallback border-color */
     --slds-c-button-color-border-hover: var(--slds-c-button-inverse-color-border-hover, var(--sds-c-button-inverse-color-border-hover, var(--slds-g-color-border-base-4, #{$button-color-border-primary})));
+  }
+
+  &:focus {
+    box-shadow: var(--slds-g-shadow-inset-focus-1, #{$shadow-button-focus});
   }
 
   &:active {
@@ -429,10 +432,10 @@ a.slds-button--inverse:focus {
     --slds-c-button-color-background-hover: var(--slds-c-button-destructive-color-background-hover, var(--sds-c-button-destructive-color-background-hover, var(--slds-g-color-error-base-30, #{$color-background-destructive-hover})));
 
     /*! @css-var-fallback border-color */
-    --slds-c-button-color-border-hover: var(--sds-c-button-destructive-color-border-hover, var(--sds-c-button-destructive-color-border-hover, var(--slds-g-color-error-base-40, #{$color-background-destructive})));
+    --slds-c-button-color-border-hover: var(--slds-c-button-destructive-color-border-hover, var(--sds-c-button-destructive-color-border-hover));
 
     /*! @css-var-fallback color */
-    --slds-c-button-text-color-hover: var(--sds-c-button-destructive-text-color-hover, var(--sds-c-button-destructive-text-color-hover, var(--slds-g-color-neutral-base-100, #{$color-text-inverse})));
+    --slds-c-button-text-color-hover: var(--slds-c-button-destructive-text-color-hover, var(--sds-c-button-destructive-text-color-hover, var(--slds-g-color-neutral-base-100, #{$color-text-inverse})));
   }
 
   &:active {
@@ -492,7 +495,7 @@ a.slds-button--inverse:focus {
     --slds-c-button-color-background-active: var(--slds-c-button-text-destructive-color-background-active, var(--sds-c-button-text-destructive-color-background-active, var(--slds-g-color-neutral-base-95, #{$color-background-button-default-active})));
 
     /*! @css-var-fallback border-color */
-    --slds-c-button-color-border-active: var(--sds-c-button-text-destructive-color-border-active, var(--sds-c-button-text-destructive-color-border-active, var(--slds-g-color-border-base-4, #{$button-color-border-primary})));
+    --slds-c-button-color-border-active: var(--slds-c-button-text-destructive-color-border-active, var(--sds-c-button-text-destructive-color-border-active, var(--slds-g-color-border-base-4, #{$button-color-border-primary})));
 
     /*! @css-var-fallback color */
     --slds-c-button-text-color-active: var(--slds-c-button-text-destructive-text-color-active, var(--sds-c-button-text-destructive-text-color-active, var(--slds-g-color-error-base-30, #{$color-text-destructive-hover})));
@@ -502,7 +505,7 @@ a.slds-button--inverse:focus {
   &:disabled {
     // @todo: global shared disabled button hooks
     background-color: var(--slds-g-color-neutral-base-100, #{$color-background-button-default-disabled});
-    border-color: var(--slds-g-color-border-base-4, #{$button-color-border-primary});
+    border-color: var(--slds-g-color-border-base-1, #{$button-color-border-primary});
     color: var(--slds-g-color-neutral-base-80, #{$color-text-button-default-disabled});
   }
 }
@@ -558,6 +561,18 @@ a.slds-button--inverse:focus {
     background-color: var(--slds-g-color-neutral-base-80, #{$brand-disabled});
     border-color: var(--slds-g-color-neutral-base-80, #{$brand-disabled});
     color: var(--slds-g-color-neutral-base-100, #{$color-text-button-brand-disabled});
+  }
+}
+
+.slds-button_brand,
+.slds-button--brand,
+.slds-button_success,
+.slds-button--success,
+.slds-button_destructive,
+.slds-button--destructive {
+  &:focus {
+    box-shadow: var(--slds-g-shadow-outset-focus-1);
+    outline: 0;
   }
 }
 

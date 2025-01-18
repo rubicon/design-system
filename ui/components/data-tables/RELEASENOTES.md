@@ -4,6 +4,31 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.25.0
+
+### Changed
+
+- Changed the hover color for the icons used in inline edit variant
+- Changed the dropdown options color when disabled
+
+## 2.24.0
+
+### Changed
+
+- Introduced a new hidden element which helps screen reader announce its state when a cell content has been updated
+
+## 2.22.0
+
+### Added
+
+- Added `font-weight` property in `.slds-is-edited` & `.slds-has-error` to provide secondary indicator for the text
+- Updated `Accessibility` section in `docs.mdx` documentation file for bold text
+
+## 2.22.0
+
+### Changed
+
+- Removed `aria-label` from table header to prevent from reading twice headers.
 ## 2.17.0
 
 ### Added
